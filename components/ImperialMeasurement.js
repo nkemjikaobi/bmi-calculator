@@ -6,9 +6,9 @@ const ImperialMeasurement = ({
 	onChangeWeight,
 	onChangeHeight,
 	height,
-    weight,
-    inches,
-    onChangeInches
+	weight,
+	inches,
+	onChangeInches,
 }) => {
 	return (
 		<View style={styles.inputWrapper}>
@@ -58,5 +58,6 @@ const styles = StyleSheet.create({
 		padding: 10,
 		borderColor: '#0047AB',
 		borderRadius: 7,
+		width: 300,
 	},
 });
