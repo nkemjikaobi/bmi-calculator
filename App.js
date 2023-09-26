@@ -11,8 +11,7 @@ export default function App() {
 	const [weight, onChangeWeight] = useState('');
 	const [inches, onChangeInches] = useState('');
 	const [isStandard, setIsStandard] = useState(false);
-  const [currentMeasurment, setCurrentMeasurement] = useState('Imperial');
-  const [result, setResult] = useState()
+	const [currentMeasurment, setCurrentMeasurement] = useState('Imperial');
 
 	const onCalculateBMI = () => {
 		if (!isStandard && !inches)
@@ -35,12 +34,34 @@ export default function App() {
 		 */
 		let bmi;
 		if (isStandard) {
-      let heightInMeteres = height / 100;
-      bmi = weight / (heightInMeteres * heightInMeteres)
-    }
-    else {
-      
-    }
+			//Convert centimeteres to meters
+			let heightInMeteres = height / 100;
+			bmi = weight / (heightInMeteres * heightInMeteres);
+		} else {
+			// 			Convert 2 feet + 3 inches to centimeters:
+
+			// d(cm) = 2ft × 30.48 + 3in × 2.54 = 68.58cm
+			//Convert the feet value to cm
+			const feetValue = height * 30.48;
+
+			//Convert the inches value to cm
+			const inchesValue = inches * 2.54;
+
+			//Convert pounds to kg
+			const finalWeight = weight * 0.45359237;
+
+			//Get the final height in metres
+			const finalHeight = (feetValue + inchesValue) / 100;
+			bmi = finalWeight / (finalHeight * finalHeight);
+		}
+
+		if (bmi) {
+			return Alert.alert(
+				'BMI Result',
+				`Your BMI result is ${Number(bmi).toFixed(1)}`,
+				[]
+			);
+		}
 	};
 
 	const onToggleMeasurements = (measurementName, status) => {
