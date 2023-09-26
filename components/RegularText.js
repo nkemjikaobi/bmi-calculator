@@ -10,6 +10,6 @@ export default RegularText;
 const styles = StyleSheet.create({
 	regular: {
 		fontSize: 16,
-		color: 'green',
+		color: '#0047AB',
 	},
 });
