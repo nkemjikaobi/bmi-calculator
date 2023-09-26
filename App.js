@@ -3,10 +3,13 @@ import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import HeaderText from './components/HeaderText';
 import { useState } from 'react';
 import StandardMeasurement from './components/StandardMeasurement';
+import ImperialMeasurement from './components/ImperialMeasurement';
 
 export default function App() {
 	const [height, onChangeHeight] = useState('');
 	const [weight, onChangeWeight] = useState('');
+	const [inches, onChangeInches] = useState('');
+	const [isStandard, setIsStandard] = useState(false);
 
 	const onCalculateBMI = () => {
 		if (!height || !weight)
@@ -20,11 +23,19 @@ export default function App() {
 	return (
 		<View style={styles.container}>
 			<HeaderText>BMI Calculator</HeaderText>
-			<StandardMeasurement
+			{/* <StandardMeasurement
 				onChangeHeight={onChangeHeight}
 				onChangeWeight={onChangeWeight}
 				height={height}
 				weight={weight}
+			/> */}
+			<ImperialMeasurement
+				onChangeHeight={onChangeHeight}
+				onChangeWeight={onChangeWeight}
+				onChangeInches={onChangeInches}
+				height={height}
+				weight={weight}
+				inches={inches}
 			/>
 			<View>
 				<TouchableOpacity style={styles.bmiBtn} onPress={onCalculateBMI}>

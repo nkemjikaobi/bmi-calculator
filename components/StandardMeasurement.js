@@ -11,22 +11,22 @@ const StandardMeasurement = ({
 	return (
 		<View style={styles.inputWrapper}>
 			<View>
-				<RegularText>Your Height</RegularText>
+				<RegularText>Your Height (CM)</RegularText>
 				<TextInput
 					style={styles.input}
 					onChangeText={onChangeHeight}
 					value={height}
-					placeholder='Enter your height'
+					placeholder='Enter your height in centimeters'
 					keyboardType='number'
 				/>
 			</View>
 			<View>
-				<RegularText>Your Weight</RegularText>
+				<RegularText>Your Weight (KG)</RegularText>
 				<TextInput
 					style={styles.input}
 					onChangeText={onChangeWeight}
 					value={weight}
-					placeholder='Enter your weight'
+					placeholder='Enter your weight in kilograms'
 					keyboardType='number'
 				/>
 			</View>
@@ -42,7 +42,6 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		height: 40,
-		width: 200,
 		marginTop: 12,
 		marginBottom: 30,
 		borderWidth: 1,
