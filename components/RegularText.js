@@ -9,7 +9,7 @@ export default RegularText;
 
 const styles = StyleSheet.create({
 	regular: {
-		fontSize: 16,
+		fontSize: 14,
 		color: '#0047AB',
 	},
 });

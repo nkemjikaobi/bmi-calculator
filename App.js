@@ -1,5 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, TextInput, View } from 'react-native';
+import {
+	StyleSheet,
+	Text,
+	TextInput,
+	TouchableOpacity,
+	View,
+} from 'react-native';
 import HeaderText from './components/HeaderText';
 import RegularText from './components/RegularText';
 import { useState } from 'react';
@@ -33,6 +39,14 @@ export default function App() {
 					/>
 				</View>
 			</View>
+			<View>
+				<TouchableOpacity
+					style={styles.bmiBtn}
+					// onPress={onClearForm}
+				>
+					<Text style={{ color: 'white' }}>Calculate BMI</Text>
+				</TouchableOpacity>
+			</View>
 		</View>
 	);
 }
@@ -55,6 +69,12 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		padding: 10,
 		borderColor: '#0047AB',
-		borderRadius: 10,
+		borderRadius: 7,
+	},
+	bmiBtn: {
+		backgroundColor: 'black',
+		alignItems: 'center',
+		padding: 10,
+		borderRadius: 5,
 	},
 });
