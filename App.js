@@ -1,49 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
-import {
-	StyleSheet,
-	Text,
-	TextInput,
-	TouchableOpacity,
-	View,
-} from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import HeaderText from './components/HeaderText';
-import RegularText from './components/RegularText';
 import { useState } from 'react';
+import StandardMeasurement from './components/StandardMeasurement';
 
 export default function App() {
 	const [height, onChangeHeight] = useState('');
 	const [weight, onChangeWeight] = useState('');
 
+	const onCalculateBMI = () => {
+		if (!height || !weight)
+			return Alert.alert(
+				'Form Error',
+				'Please input your weight and height',
+				[]
+			);
+	};
+
 	return (
 		<View style={styles.container}>
 			<HeaderText>BMI Calculator</HeaderText>
-			<View style={styles.inputWrapper}>
-				<View>
-					<RegularText>Your Height</RegularText>
-					<TextInput
-						style={styles.input}
-						onChangeText={onChangeHeight}
-						value={height}
-						placeholder='Enter your height'
-						keyboardType='number'
-					/>
-				</View>
-				<View>
-					<RegularText>Your Weight</RegularText>
-					<TextInput
-						style={styles.input}
-						onChangeText={onChangeWeight}
-						value={weight}
-						placeholder='Enter your weight'
-						keyboardType='number'
-					/>
-				</View>
-			</View>
+			<StandardMeasurement
+				onChangeHeight={onChangeHeight}
+				onChangeWeight={onChangeWeight}
+				height={height}
+				weight={weight}
+			/>
 			<View>
-				<TouchableOpacity
-					style={styles.bmiBtn}
-					// onPress={onClearForm}
-				>
+				<TouchableOpacity style={styles.bmiBtn} onPress={onCalculateBMI}>
 					<Text style={{ color: 'white' }}>Calculate BMI</Text>
 				</TouchableOpacity>
 			</View>
@@ -57,19 +41,6 @@ const styles = StyleSheet.create({
 		backgroundColor: '#fff',
 		alignItems: 'center',
 		justifyContent: 'center',
-	},
-	inputWrapper: {
-		marginTop: 40,
-	},
-	input: {
-		height: 40,
-		width: 200,
-		marginTop: 12,
-		marginBottom: 30,
-		borderWidth: 1,
-		padding: 10,
-		borderColor: '#0047AB',
-		borderRadius: 7,
 	},
 	bmiBtn: {
 		backgroundColor: 'black',
