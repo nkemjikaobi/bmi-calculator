@@ -19,7 +19,7 @@ const ImperialMeasurement = ({
 					onChangeText={onChangeHeight}
 					value={height}
 					placeholder='Enter your height in feet'
-					keyboardType='number'
+					keyboardType='number-pad'
 				/>
 				<RegularText>Your Height (IN)</RegularText>
 				<TextInput
@@ -27,7 +27,7 @@ const ImperialMeasurement = ({
 					onChangeText={onChangeInches}
 					value={inches}
 					placeholder='Enter the remainder in inches'
-					keyboardType='number'
+					keyboardType='number-pad'
 				/>
 			</View>
 			<View>
@@ -37,7 +37,7 @@ const ImperialMeasurement = ({
 					onChangeText={onChangeWeight}
 					value={weight}
 					placeholder='Enter your weight in pounds'
-					keyboardType='number'
+					keyboardType='number-pad'
 				/>
 			</View>
 		</View>

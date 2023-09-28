@@ -17,7 +17,7 @@ const StandardMeasurement = ({
 					onChangeText={onChangeHeight}
 					value={height}
 					placeholder='Enter your height in centimeters'
-					keyboardType='number'
+					keyboardType='number-pad'
 				/>
 			</View>
 			<View>
@@ -27,7 +27,7 @@ const StandardMeasurement = ({
 					onChangeText={onChangeWeight}
 					value={weight}
 					placeholder='Enter your weight in kilograms'
-					keyboardType='number'
+					keyboardType='number-pad'
 				/>
 			</View>
 		</View>
