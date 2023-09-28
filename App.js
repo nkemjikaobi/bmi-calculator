@@ -55,10 +55,21 @@ export default function App() {
 			bmi = finalWeight / (finalHeight * finalHeight);
 		}
 
+		let category;
+		if (bmi < 18.5) {
+			category = 'Underweight';
+		} else if (bmi >= 18.5 && bmi <= 24.9) {
+			category = 'Normal weight';
+		} else if (bmi >= 25 && bmi <= 29.9) {
+			category = 'Overweight';
+		} else if (bmi > 30) {
+			category = 'Obesity';
+		}
+
 		if (bmi) {
 			return Alert.alert(
-				'BMI Result',
-				`Your BMI result is ${Number(bmi).toFixed(1)}`,
+				`BMI Result is ${Number(bmi).toFixed(1)}`,
+				`Category - ${category}`,
 				[]
 			);
 		}
